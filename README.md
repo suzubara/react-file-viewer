@@ -1,22 +1,28 @@
-
 # react-file-viewer
+
+Forked from https://github.com/plangrid/react-file-viewer
+
+## Roadmap:
+
+- [ ] Convert CSS to CSS modules
+- [ ] Add support for custom controls components
+- [ ] Convert to TypeScript
 
 Extendable file viewer for web
 
 ## Supported file formats:
 
- - Images: png, jpeg, gif, bmp, including 360-degree images
- - pdf
- - csv
- - xslx
- - docx
- - Video: mp4, webm
- - Audio: mp3
-
+- Images: png, jpeg, gif, bmp, including 360-degree images
+- pdf
+- csv
+- xslx
+- docx
+- Video: mp4, webm
+- Audio: mp3
 
 ## Usage
 
-Note this module works best with react 16+.  If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
+Note this module works best with react 16+. If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
 
 There is one main React component, `FileViewer`, that takes the following props:
 
@@ -64,56 +70,3 @@ class MyComponent extends Component {
   }
 }
 ```
-
-## Development
-
-There is a demo app built into this library that can be used for development
-purposes. It is by default served via webpack-dev-server.
-
-### To start demo app
-
-`make start` will start the demo app served by webpack-dev-server
-
-### Testing
-
-Tests use Jest and Enzyme.
-
-Run tests with:
-
-```
-make test
-```
-
-This starts Jest in watch mode. To run a particular test file, while in watch mode
-hit `p` and then type the path or name of the file.
-
-Some tests use snapshots. If intended changes to a component cause snapshot tests
-to fail, snapshot files need to be updated (stored in `__snapshots__` directories).
-To do this run:
-
-```
-npm run jest --updateSnapshot
-```
-
-### To run the linter
-
-`make lint`
-
-### Extending the file viewer
-
-Adding supported file types is easy (and pull requests are welcome!). Say, for
-example, you want to add support for `.rtf` files. First, you need to create a
-"driver" for that file type. A driver is just a component that is capable of
-rendering that file type. (See what exists now in `src/components/drivers`.) After
-you've created the driver component and added it to `src/components/drivers`, you
-simply need to import the component into `file-vewer.jsx` and add a switch clause
-for `rtf` to the `getDriver` method. Ie:
-
-```
-case 'rtf':
-  return RtfViewer;
-```
-
-## Roadmap
-
-- Remove ignored linting rules and fix them
